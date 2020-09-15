@@ -1,0 +1,23 @@
+{
+  "name": "cav_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloManoel/cav_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PabloManoel/cav_api/issues"
+  },
+  "homepage": "https://github.com/PabloManoel/cav_api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
