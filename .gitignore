@@ -1,1 +1,4 @@
 node_modules/
+src/data/calendar.json
+src/data/cars.json
+src/data/cav.json
