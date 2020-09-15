@@ -1,14 +1,13 @@
-const calendarJSON = require("../data/calendar");
+const calendar = require("../data/calendar");
 const carsJSON = require("../data/cars");
 const cavJSON = require("../data/cav");
+const fs = require("fs");
 
 async function getAll() {
   return Promise.resolve(cavJSON);
 }
 
 async function getAvailableTime(cavId, procedure) {
-  const calendar = Object.assign({}, calendarJSON);
-
   let response = {};
 
   for (date in calendar.date) {
@@ -26,7 +25,26 @@ async function getAvailableTime(cavId, procedure) {
   return Promise.resolve(response);
 }
 
-async function scheduleInspection(cavId) {
+async function scheduleInspection(cavId, body) {
+
+  const { date, car } = body;
+
+  const formattedDate = new Date(date).toISOString().split('T')[0];
+  const hour = new Date(date).getHours();
+
+  let calendarClone = Object.assign({}, calendar);
+
+  // TODO: validar se existe data, hora e carro
+  if (!Object.keys(calendarClone.date[formattedDate].cav[cavId].inspection[hour]).length){
+    calendarClone.date[formattedDate].cav[cavId].inspection[hour].car = car;
+  }
+
+  fs.writeFile("src/data/calendar.json", JSON.stringify(calendarClone), err => { 
+     
+    if (err) throw err;  
+    console.log("calendar updated");
+  }); 
+
   return Promise.resolve();
 }
 

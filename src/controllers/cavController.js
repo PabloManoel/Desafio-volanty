@@ -19,7 +19,7 @@ async function getAvailableTime (req, res, next) {
 async function scheduleInspection (req, res, next) {
     const cavId = req.params.cavId;
 
-    response = await cavService.scheduleInspection(cavId)
+    response = await cavService.scheduleInspection(cavId, req.body)
 
     res.status(200).send("[scheduleInspection]");
 };
