@@ -1,17 +1,34 @@
+const cavService = require("../services/cavService");
 
-function getAll (req, res, next) {
-    res.status(200).send("[getAll]");
+async function getAll (req, res, next) {
+
+    response = await cavService.getAll();
+
+    res.status(200).send(response);
 };
 
-function getAvailableTime (req, res, next) {
-    res.status(200).send("[getAvailableTime]");
+async function getAvailableTime (req, res, next) {
+    const cavId = req.params.cavId;
+    const procedure = req.query.procedure;
+
+    response = await cavService.getAvailableTime(cavId, procedure)
+
+    res.status(200).send(response);
 };
 
-function scheduleInspection (req, res, next) {
+async function scheduleInspection (req, res, next) {
+    const cavId = req.params.cavId;
+
+    response = await cavService.scheduleInspection(cavId)
+
     res.status(200).send("[scheduleInspection]");
 };
 
-function scheduleVisit (req, res, next) {
+async function scheduleVisit (req, res, next) {
+    const cavId = req.params.cavId;
+
+    response = await cavService.scheduleVisit(cavId)
+
     res.status(200).send("[scheduleVisit]");
 };
 
