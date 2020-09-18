@@ -27,7 +27,7 @@ async function scheduleInspection (req, res, next) {
 async function scheduleVisit (req, res, next) {
     const cavId = req.params.cavId;
 
-    response = await cavService.scheduleVisit(cavId)
+    response = await cavService.scheduleVisit(cavId, req.body);
 
     res.status(200).send("[scheduleVisit]");
 };

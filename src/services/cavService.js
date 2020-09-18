@@ -24,31 +24,48 @@ async function getAvailableTime(cavId, procedure) {
 
   return Promise.resolve(response);
 }
+function isAvailableTime(date, hour, procedure, cavId){
+  return Object.keys(calendar.date[date].cav[cavId][procedure][hour]).length === 0;
+}
+
+function getFormattedDate(date){
+  return new Date(date).toISOString().split('T')[0];
+}
+
+function getHourFromDate(date){
+  return new Date(date).getHours();
+}
+
+function saveSchedule(calendar){
+  fs.writeFile("src/data/calendar.json", JSON.stringify(calendar), err => { 
+     
+    if (err) throw err;
+    console.log("calendar updated");
+  }); 
+};
 
 async function scheduleInspection(cavId, body) {
 
   const { date, car } = body;
 
-  const formattedDate = new Date(date).toISOString().split('T')[0];
-  const hour = new Date(date).getHours();
+  const formattedDate = getFormattedDate(date);
+  const hour = getHourFromDate(date);
 
   let calendarClone = Object.assign({}, calendar);
 
   // TODO: validar se existe data, hora e carro
-  if (!Object.keys(calendarClone.date[formattedDate].cav[cavId].inspection[hour]).length){
+  if (isAvailableTime(formattedDate, hour, "inspection", cavId)){
     calendarClone.date[formattedDate].cav[cavId].inspection[hour].car = car;
+  } else {
+    console.log("nao ha horario disponivel");
   }
 
-  fs.writeFile("src/data/calendar.json", JSON.stringify(calendarClone), err => { 
-     
-    if (err) throw err;  
-    console.log("calendar updated");
-  }); 
+  saveSchedule(calendarClone);
 
   return Promise.resolve();
 }
 
-async function scheduleVisit(cavId) {
+async function scheduleVisit(cavId, body) {
   return Promise.resolve();
 }
 
