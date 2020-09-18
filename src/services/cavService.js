@@ -66,6 +66,22 @@ async function scheduleInspection(cavId, body) {
 }
 
 async function scheduleVisit(cavId, body) {
+  const { date, car } = body;
+
+  const formattedDate = getFormattedDate(date);
+  const hour = getHourFromDate(date);
+
+  let calendarClone = Object.assign({}, calendar);
+
+  // TODO: validar se existe data, hora e carro
+  if (!isAvailableTime(formattedDate, hour, "visit", cavId)){
+    console.log("nao ha horario disponivel");
+    return Promise.resolve();  
+  }
+  calendarClone.date[formattedDate].cav[cavId].visit[hour].car = car;
+
+  saveSchedule(calendarClone);
+
   return Promise.resolve();
 }
 
