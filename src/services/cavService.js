@@ -117,12 +117,14 @@ function validateProcedure(procedure) {
   if (!PROCEDURES.includes(procedure)) {
     throw exceptions.preconditionFailed("Procedimento não aceito");
   }
+  return true;
 }
 
 function validateCAV(cavId) {
   if (!CAVs.includes(cavId)) {
     throw exceptions.preconditionFailed("CAV não aceito");
   }
+  return true;
 }
 
 async function isAvailableTime(date, hour, procedure, cavId) {
@@ -159,9 +161,22 @@ async function saveCalendar(calendar) {
   return system.saveFile(PATHS.calendar, calendar);
 }
 
+const test = {
+  getHourFromDate,
+  getFormattedDate,
+  existsHourInCalendar,
+  existsDateInCalendar,
+  validateProcedure,
+  validateCAV,
+  loadCAV,
+  loadCars,
+  loadCalendar,
+}
+
 module.exports = {
   getCAV,
   getAvailableTime,
   scheduleInspection,
   scheduleVisit,
+  test
 };

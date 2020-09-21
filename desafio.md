@@ -1,4 +1,5 @@
 # Cenário
+
 Na Volanty, nós realizamos diversos procedimentos além da compra e venda do automóvel que precisam da presença física do mesmo. Entre eles, estão a inspeção prévia do veículo para divulgação no nosso site e visitas de possíveis compradores.
 
 Para realizar tais procedimentos, obviamente, temos que pedir que o proprietário do veículo o traga para algum Centro de Atendimento Volanty (CAV), numa data pré-agendada.
