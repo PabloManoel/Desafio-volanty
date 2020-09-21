@@ -7,6 +7,9 @@
 
 ## Endpoints
 
+- healthCheck
+    - GET /
+
 - Retorne os horários disponíveis para um dado CAV por procedimento (Inspeção ou Visita)
     - GET /cav
 
@@ -21,9 +24,5 @@
 
 ## Débitos técnicos
 
-- Tratamento de exceções
-- Validação se o carro existe na base
 - Criação de dockerFile
 - Criação de testes unitários
-- Transformar JSON em chamadas ao banco
-- passar API para Lambda
