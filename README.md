@@ -1,7 +1,3 @@
-<p align="center">
-<img src="https://lh3.googleusercontent.com/proxy/SSUz3Kjz9sAk4ULEUkq8LixGwSbosmze5MafmMjxb3Y4FQEH6U2FJ5973cnQenWlcy5y2v9ua_J-z78YukAtD3XAxLbfiylOG9gi4k68lKBLo1Lba48PjQJkHb_NYZU9D6BpM30" height="150" width="400" alt="Unform" />
-</p>
-
 # CAV API - Centro de atendimento Volanty
 
 ### Desafio técnico proposto durante o processo seletivo para vaga de desenvolvedor _back end_ na Volanty. Veja mais em **[Proposta](https://github.com/PabloManoel/Desafio-volanty/blob/master/desafio.md)**.
