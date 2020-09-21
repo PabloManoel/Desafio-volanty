@@ -1,7 +1,5 @@
 <p align="center">
-<a href="https://www.volanty.com/">
 <img src="https://lh3.googleusercontent.com/proxy/SSUz3Kjz9sAk4ULEUkq8LixGwSbosmze5MafmMjxb3Y4FQEH6U2FJ5973cnQenWlcy5y2v9ua_J-z78YukAtD3XAxLbfiylOG9gi4k68lKBLo1Lba48PjQJkHb_NYZU9D6BpM30" height="150" width="400" alt="Unform" />
-</a>
 </p>
 
 # CAV API - Centro de atendimento Volanty
@@ -43,7 +41,7 @@ $ npm install
 
 ## Pré-requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+Antes de começar, você precisará ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Docker](https://www.docker.com/).
 
 ---
@@ -104,41 +102,46 @@ $ npm run test
 
 ## Endpoints
 
-- healthCheck
-  - HTTP Method: **GET**
-  - Path: /
+★ healthCheck
 
-- Retorne uma lista de CAVs
-  - HTTP Method: **GET**
-  - Path: /cav
+- HTTP Method: **GET**
+- Path: /
 
-- Retorna os horários disponíveis para um dado CAV por procedimento (Inspeção ou Visita)
-  - HTTP Method: **GET**
-  - Path: /cav/:cavId?procedure=<visit|inspection>
+★ Retorne uma lista de CAVs
 
-- Permite agendar uma inspeção
-  - HTTP Method: **POST**
-  - path: /cav/:cavId/inspection
-  - _Body_ de exemplo:
+- HTTP Method: **GET**
+- Path: /cav
 
-  ```JSON
-  {
-    "car": 5,
-    "date": "2019-07-18T14:00:00"
-  }
-  ```
+★ Retorna os horários disponíveis para um dado CAV por procedimento (Inspeção ou Visita)
 
-- Permite que o interessado marque uma visita para um dado veículo;
-  - HTTP Method: **POST**
-  - Path: /cav/:cavId/visit
-  - _Body_ de exemplo:
+- HTTP Method: **GET**
+- Path: /cav/:cavId?procedure=<visit|inspection>
 
-  ```JSON
-  {
-    "car": 1,
-    "date": "2019-07-18T12:00:00"
-  }
-  ```
+★ Permite agendar uma inspeção
+
+- HTTP Method: **POST**
+- path: /cav/:cavId/inspection
+- _Body_ de exemplo:
+
+```JSON
+{
+  "car": 5,
+  "date": "2019-07-18T14:00:00"
+}
+```
+
+★ Permite que o interessado marque uma visita para um dado veículo;
+
+- HTTP Method: **POST**
+- Path: /cav/:cavId/visit
+- _Body_ de exemplo:
+
+```JSON
+{
+  "car": 1,
+  "date": "2019-07-18T12:00:00"
+}
+```
 
 ---
 
